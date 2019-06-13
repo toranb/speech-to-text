@@ -1,13 +1,15 @@
 defmodule VoiceWeb.PageController do
   use VoiceWeb, :controller
 
+  alias VoiceWeb.Auth.Google
+
   def index(conn, _params) do
     render(conn, "index.html")
   end
 
   def create(conn, _params) do
     url = "https://texttospeech.googleapis.com/v1/text:synthesize"
-    token = get_token()
+    token = Google.get_token()
     params = get_params()
     %HTTPoison.Response{body: body} = post(url, token, params)
 
@@ -25,12 +27,6 @@ defmodule VoiceWeb.PageController do
     ]
 
     HTTPoison.post!(url, body, headers)
-  end
-
-  def get_token() do
-    # :os.cmd(:io_lib.format("export GOOGLE_APPLICATION_CREDENTIALS=/Users/toranb/Downloads/gcloud.json", []))
-    {token, _} = System.cmd("gcloud", ["auth", "application-default", "print-access-token"])
-    String.slice(token, 0..-2)
   end
 
   def get_params() do

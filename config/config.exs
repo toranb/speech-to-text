@@ -22,6 +22,12 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :httpoison,
+  google: [
+    jwt: System.get_env("GOOGLE_JWT"),
+    grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer"
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
