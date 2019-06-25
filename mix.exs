@@ -40,7 +40,8 @@ defmodule Voice.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.5"},
-      {:poison, "~> 3.0"}
+      {:poison, "~> 3.0"},
+      {:joken, "~> 2.1"}
     ]
   end
 end
