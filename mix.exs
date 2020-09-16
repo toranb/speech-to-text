@@ -39,9 +39,9 @@ defmodule Voice.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:httpoison, "~> 1.5"},
-      {:poison, "~> 3.0"},
-      {:joken, "~> 2.1"}
+      {:httpoison, "~> 1.7"},
+      {:poison, "~> 4.0"},
+      {:joken, "~> 2.2"}
     ]
   end
 end
