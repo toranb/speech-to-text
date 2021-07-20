@@ -7,7 +7,7 @@ defmodule VoiceWeb.Auth.Google do
       grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer"
     }
 
-    url = "https://www.googleapis.com/oauth2/v4/token"
+    url = "https://oauth2.googleapis.com/token"
     response = post(url, params)
     parse_access_token(response)
   end

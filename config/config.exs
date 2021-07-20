@@ -10,9 +10,10 @@ use Mix.Config
 # Configures the endpoint
 config :voice, VoiceWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "ZY5egDEwZhoOm0XewbA3JTyXHfHpFwEhrrkysyotDjLm+mW2kJLpkL8DplLdP/6P",
-  render_errors: [view: VoiceWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Voice.PubSub, adapter: Phoenix.PubSub.PG2]
+  secret_key_base: "WY9qkNxRos30n7tq63poD+050uTngiSb58UxHWjNHwz2zTnNdZBYCD1UTA41s+Vx",
+  render_errors: [view: VoiceWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Voice.PubSub,
+  live_view: [signing_salt: "dmsYt9r+"]
 
 # Configures Elixir's Logger
 config :logger, :console,

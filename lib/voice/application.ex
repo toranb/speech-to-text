@@ -6,12 +6,15 @@ defmodule Voice.Application do
   use Application
 
   def start(_type, _args) do
-    # List all child processes to be supervised
     children = [
-      # Start the endpoint when the application starts
+      # Start the Telemetry supervisor
+      VoiceWeb.Telemetry,
+      # Start the PubSub system
+      {Phoenix.PubSub, name: Voice.PubSub},
+      # Start the Endpoint (http/https)
       VoiceWeb.Endpoint
-      # Starts a worker by calling: Voice.Worker.start_link(arg)
-      # {Voice.Worker, arg},
+      # Start a worker by calling: Voice.Worker.start_link(arg)
+      # {Voice.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
